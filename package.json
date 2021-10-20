@@ -1,0 +1,11 @@
+{
+  "name": "randomtabledatagenerator",
+  "version": "1.0.0",
+  "description": "Function that generates random table data based on options you specify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicholas Ryan Raynes",
+  "license": "ISC"
+}

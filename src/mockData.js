@@ -6,6 +6,7 @@ const validHeaderFields = require('./stores/config/validHeaderFields');
 // Import utility functions.
 const checkInputs = require('./utils/checkInputs');
 const convertArrayToObject = require('./utils/convertArrayToObject');
+const { getRandomNumber } = require('./utils/getRandomNumber');
 
 // Import type functions.
 const makeAName = require('./utils/typeFuncs/nameMaker');
@@ -21,6 +22,12 @@ const randomTableData = (options, callback) => {
     options = {};
   }
 
+  // Grab process variable for automatic error control.
+  let nodeEnv;
+  if (process.env.NODE_ENV) {
+    nodeEnv = process.env.NODE_ENV;
+  }
+
   // Destructure options and provide default values.
   const {
     maxEntries = 50,
@@ -29,7 +36,7 @@ const randomTableData = (options, callback) => {
     headerTypes = [],
     outputType = 'arrays',
     keyNames = [],
-    devCheck = false,
+    devCheck = nodeEnv === 'development' ? true : false,
   } = options;
 
   // Check input of options if devCheck is set.
@@ -45,7 +52,7 @@ const randomTableData = (options, callback) => {
   if (amountOfEntries) {
     entries = amountOfEntries;
   } else {
-    entries = minEntries + Math.floor(Math.random() * (maxEntries - minEntries));
+    entries = getRandomNumber(minEntries, maxEntries);
   }
 
   // Start creating entries and adding them to return value.
@@ -53,12 +60,14 @@ const randomTableData = (options, callback) => {
     // Initialize empty row.
     const rowEntry = [];
     for (let j = 0; j < headerTypes.length; j++) {
+
       // Initialize parameters with defaults if neccesary.
       const {
         type,
         max = 500,
         min = 0,
         sequential = false,
+        minLength = 0,
         maxLength = 10,
         fixedLength,
         padWithZeros = 0,
@@ -93,7 +102,7 @@ const randomTableData = (options, callback) => {
           rowEntry.push(makeANumber(min, max, i, sequential));
           break;
         case validTypes.stringNumber:
-          rowEntry.push(makeAStringNumber(fixedLength, maxLength, padWithZeros));
+          rowEntry.push(makeAStringNumber(fixedLength, minLength, maxLength, padWithZeros));
           break;
         case validTypes.fullName:
           rowEntry.push(makeAName());

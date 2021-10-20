@@ -1,5 +1,7 @@
+const { getRandomArrayIndex } = require("../getRandomNumber");
+
 const makeAString = (randomStringCollection) => (
-    randomStringCollection[Math.floor(Math.random() * (randomStringCollection.length - 0.1))]
+    randomStringCollection[getRandomArrayIndex(randomStringCollection.length)]
 );
 
 module.exports = makeAString;

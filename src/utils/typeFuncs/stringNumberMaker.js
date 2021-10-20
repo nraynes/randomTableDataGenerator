@@ -1,15 +1,16 @@
 const padZeros = require('../padZeros');
+const { getRandomNumber, getRandomDigit } = require('../getRandomNumber');
 
-const makeAStringNumber = (fixedLength, maxLength, padWithZeros) => {
+const makeAStringNumber = (fixedLength, minLength, maxLength, padWithZeros) => {
   let length;
   if (fixedLength) {
     length = fixedLength;
   } else {
-    length = Math.floor(Math.random() * maxLength);
+    length = getRandomNumber(minLength, maxLength);
   }
   let buildStr = '';
   for (let k = 0; k < length; k++) {
-    buildStr += `${Math.floor(Math.random() * 9.99)}`;
+    buildStr += `${getRandomDigit()}`;
   }
   return padZeros(buildStr, padWithZeros + length);
 }

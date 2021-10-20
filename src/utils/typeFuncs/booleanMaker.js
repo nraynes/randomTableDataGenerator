@@ -1,5 +1,7 @@
+const { getRandomDigit } = require("../getRandomNumber");
+
 const makeABoolean = (boolType, numberType) => {
-    let randomVal = Math.floor(Math.random() * 1.99)
+    let randomVal = getRandomDigit(2);
     if (boolType) {
         return randomVal < 1;
     } else if (numberType) {

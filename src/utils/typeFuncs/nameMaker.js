@@ -1,12 +1,13 @@
 /* eslint-disable no-plusplus */
 const firstNames = require('../../stores/names/firstNames');
 const lastNames = require('../../stores/names/lastNames');
+const { getRandomArrayIndex } = require('../getRandomNumber');
 
 const names = [firstNames, lastNames];
 const makeAName = () => {
   let fullName = '';
   for (let i = 0; i < names.length; i++) {
-    let randomIndex = Math.floor(Math.random() * (names[i].length + 1)) - 1;
+    let randomIndex = getRandomArrayIndex(names[i].length);
     if (randomIndex > names[i].length) {
       randomIndex = names[i].length - 1;
     } else if (randomIndex < 0) {

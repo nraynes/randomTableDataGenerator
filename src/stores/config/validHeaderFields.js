@@ -8,6 +8,7 @@ const validHeaderFields = [
   'sequential',
 
   // Options for stringNumbers
+  'minLength',
   'maxLength',
   'fixedLength',
   'padWithZeros',

@@ -1,5 +1,5 @@
 {
-  "name": "randomtabledatagenerator",
+  "name": "randomtabledata",
   "version": "1.0.1",
   "description": "Allows you to generates random table data based on options you specify.",
   "main": "index.js",

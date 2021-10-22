@@ -1,5 +1,5 @@
 // Import stores.
-const nouns = require('./stores/nouns/nouns');
+const { nouns, techNouns, techManufacturers } = require('./stores/nouns/index');
 const validTypes = require('./stores/config/validTypes');
 const validHeaderFields = require('./stores/config/validHeaderFields');
 
@@ -46,8 +46,11 @@ const randomTableData = (options, callback) => {
   }
 
   // If an object schema was provided, convert it to an array.
+  let nameOfKeys;
   if (isObject(keyNames)) {
-    keyNames = Object.keys(keynames);
+    nameOfKeys = Object.keys(keyNames);
+  } else {
+    nameOfKeys = keyNames;
   }
 
   // Initialize empty array to store the table data.
@@ -58,7 +61,9 @@ const randomTableData = (options, callback) => {
   if (amountOfEntries) {
     entries = amountOfEntries;
   } else {
+    console.log(minEntries, maxEntries)
     entries = getRandomNumber(minEntries, maxEntries);
+    console.log(entries)
   }
 
   // Start creating entries and adding them to return value.
@@ -97,12 +102,22 @@ const randomTableData = (options, callback) => {
         boolType = false,
         numberType = false,
         randomStringCollection = nouns,
+        useTechNouns = false,
+        useTechManufacturers = false,
       } = headerTypes[j];
+
+      // Check if switches for set for string collection.
+      let stringCollection = randomStringCollection;
+      if (useTechNouns) {
+        stringCollection = techNouns;
+      } else if (useTechManufacturers) {
+        stringCollection = techManufacturers;
+      }
 
       // Create data point based on headerType values.
       switch (type) {
         case validTypes.string:
-          rowEntry.push(makeAString(randomStringCollection));
+          rowEntry.push(makeAString(stringCollection));
           break;
         case validTypes.number:
           rowEntry.push(makeANumber(min, max, i, sequential));
@@ -146,10 +161,10 @@ const randomTableData = (options, callback) => {
     if (outputType === 'arrays') {
       data.push(rowEntry);
     } else if (outputType === 'objects') {
-      if (keyNames.length <= 0) {
+      if (nameOfKeys.length <= 0 || !Array.isArray(nameOfKeys)) {
         throw new Error('No key names provided.');
       } else {
-        data.push(convertArrayToObject(rowEntry, keyNames));
+        data.push(convertArrayToObject(rowEntry, nameOfKeys));
       }
     } else {
       throw new Error('Wrong output type.');

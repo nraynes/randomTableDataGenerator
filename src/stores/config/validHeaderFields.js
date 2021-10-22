@@ -38,6 +38,8 @@ const validHeaderFields = [
 
   // Options for strings
   'randomStringCollection',
+  'useTechNouns',
+  'useTechManufacturers',
 ];
 
 module.exports = validHeaderFields;

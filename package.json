@@ -4,7 +4,8 @@
   "description": "Allows you to generates random table data based on options you specify.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "devTest":  "node ./test/run.js"
   },
   "author": "Nicholas Ryan Raynes",
   "license": "ISC"

@@ -1,6 +1,8 @@
+const isObject = require('../utils/isObject');
+
 const checkInputs = (headerTypes, validHeaderFields, validTypes) => {
   for (let i = 0; i < headerTypes.length; i++) {
-    if (typeof headerTypes[i] !== 'object') {
+    if (!isObject(headerTypes[i])) {
       throw new Error('Invalid input on headerTypes. Please pass an array of objects.');
     } else {
       for (let j = 0; j < Object.keys(headerTypes[i]).length; j++) {

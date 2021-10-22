@@ -1,6 +1,6 @@
 const randomTableData = require('../src/mockData');
 
-console.log(randomTableData({
+randomTableData({
   minEntries: 10,
   maxEntries: 30,
   outputType: 'objects',
@@ -20,4 +20,6 @@ console.log(randomTableData({
       maxLength: 14,
     },
   ]
-}))
+}, (data) => {
+  console.log('It Works', data)
+})

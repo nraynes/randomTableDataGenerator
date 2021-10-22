@@ -7,7 +7,7 @@ const getRandomDigit = (base = 10) => (
 );
 
 const getRandomArrayIndex = (arrLength) => (
-    Math.floor(Math.random() * (arrLength + 0.49))
+    Math.floor(Math.random() * (arrLength))
 );
 
 module.exports = {

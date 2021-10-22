@@ -61,9 +61,7 @@ const randomTableData = (options, callback) => {
   if (amountOfEntries) {
     entries = amountOfEntries;
   } else {
-    console.log(minEntries, maxEntries)
     entries = getRandomNumber(minEntries, maxEntries);
-    console.log(entries)
   }
 
   // Start creating entries and adding them to return value.

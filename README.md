@@ -75,10 +75,11 @@ VALID OPTIONS:
         Default value is 'arrays'.
 
     keyNames:
-        --Array of Strings
+        --Array of Strings, or an Object
         --Used in conjuction with the outputType option.
         This will set the key names for the objects in the returned array
-        if outputType is set to 'objects'.
+        if outputType is set to 'objects'. You can pass either an array with the
+        keynames you would like, or you can pass it an object as a schema for the output.
         This is a required field.
         Default value is an empty array.
 

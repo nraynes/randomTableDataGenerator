@@ -7,6 +7,7 @@ const validHeaderFields = require('./stores/config/validHeaderFields');
 const checkInputs = require('./utils/checkInputs');
 const convertArrayToObject = require('./utils/convertArrayToObject');
 const { getRandomNumber } = require('./utils/getRandomNumber');
+const isObject = require('./utils/isObject');
 
 // Import type functions.
 const makeAName = require('./utils/typeFuncs/nameMaker');
@@ -42,6 +43,11 @@ const randomTableData = (options, callback) => {
   // Check input of options if devCheck is set.
   if (devCheck) {
     checkInputs(headerTypes, validHeaderFields, validTypes);
+  }
+
+  // If an object schema was provided, convert it to an array.
+  if (isObject(keyNames)) {
+    keyNames = Object.keys(keynames);
   }
 
   // Initialize empty array to store the table data.

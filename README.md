@@ -1,11 +1,11 @@
 # Random Table Data Generator
 
-*This package is a work in progress. It was made as part of another project to mock out data without*  
-*having to set up a mock service worker. It has no dependencies and can be used to quickly fill a table*  
-*without needing to do any work. This helps for visualizing how a table may look in production when real*  
-*data is used. This is meant to be easy to use so if there is any learning curve or feature that could be*  
-*simplified or new ones added, please feel free to email me and I will add them in so that other people*  
-*can be able to use this for their projects with the least amount of effort needing to be put in.*  
+*This package is a work in progress. It was made as part of another project to mock out data without*
+*having to set up a mock service worker. It has no dependencies and can be used to quickly fill a table*
+*without needing to do any work. This helps for visualizing how a table may look in production when real*
+*data is used. This is meant to be easy to use so if there is any learning curve or feature that could be*
+*simplified or new ones added, please feel free to email me and I will add them in so that other people*
+*can be able to use this for their projects with the least amount of effort needing to be put in.*
 
 **Thank you for using this and providing feedback if you have!**
 

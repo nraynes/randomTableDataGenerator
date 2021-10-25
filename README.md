@@ -1,7 +1,18 @@
 # Random Table Data Generator
 
+*This package is a work in progress. It was made as part of another project to mock out data without*  
+*having to set up a mock service worker. It has no dependencies and can be used to quickly fill a table*  
+*without needing to do any work. This helps for visualizing how a table may look in production when real*  
+*data is used. This is meant to be easy to use so if there is any learning curve or feature that could be*  
+*simplified or new ones added, please feel free to email me and I will add them in so that other people*  
+*can be able to use this for their projects with the least amount of effort needing to be put in.*  
+
+**Thank you for using this and providing feedback if you have!**
+
 This library provides a function called randomTableData() that will generate either an
 array of arrays or an array of objects for depending on what you specify in the options object.
+
+You can also call the function with no options and it will return an array of between 0 and 50 arrays of 10 random strings.
 
 To use this function, just call it and pass it an options object with all of the options that
 you want.
@@ -11,31 +22,39 @@ The function will return the value or if a callback function was provided will p
 
 ## USAGE:
 
-    const tableData = randomTableData({ ...yourOptionsHere })
+    SIMPLEST USAGE
+
+    const tableData = randomTableDate();
+
+
+    USAGE WITH OPTIONS
+
+
+    const tableData = randomTableData({ ...yourOptionsHere });
 
     OR
 
     randomTableData({ ...yourOptionsHere }, (tableData) => {
         ...use the tableData here...
-    })
+    });
 
     OR
 
     randomTableData({ ...yourOptionsHere }).then((tableData) => {
         ...use the tableData here...
-    })
+    });
 
     OR
 
     const tableData = randomTableData({ ...yourOptionsHere }, (tableData) => {
         ...use the tableData here and assign to variable...
-    })
+    });
 
     OR
 
     const tableData = randomTableData({ ...yourOptionsHere }).then((tableData) => {
         ...use the tableData here and assign to variable...
-    })
+    });
 
 
 ## SYNTAX:

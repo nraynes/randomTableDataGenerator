@@ -16,6 +16,7 @@ const makeANumber = require('./utils/typeFuncs/numberMaker');
 const makeAStringNumber = require('./utils/typeFuncs/stringNumberMaker');
 const makeABoolean = require('./utils/typeFuncs/booleanMaker');
 const makeADate = require('./utils/typeFuncs/dateMaker');
+const { string } = require('./stores/config/validTypes');
 
 const randomTableData = (options, callback) => {
   // Set options to empty object if none are provided.
@@ -34,7 +35,18 @@ const randomTableData = (options, callback) => {
     maxEntries = 50,
     minEntries = 1,
     amountOfEntries,
-    headerTypes = [],
+    headerTypes = [
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+      { type: string },
+    ],
     outputType = 'arrays',
     keyNames = [],
     devCheck = nodeEnv === 'development' ? true : false,
